@@ -1,0 +1,23 @@
+body
+{
+  background-image: url('http://p1.pichost.me/i/41/1647781.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+ margin-top:50px; 
+}
+#data
+{
+  margin-top:50px;
+  font-weight:bold;
+  font-size:20px;
+}
+.col-md-3:
+{
+	height:30px;
+}
+span
+{
+	font-weight: bold;
+	font-color:black;
+	font-size: 20px;
+}
