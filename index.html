@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="style.css">
+	<title>Open Weather App</title>
+</head>
+<body ng-app="weatherapp">
+<div class="container" ng-controller="weatherController">
+<div class="row">	
+<form class="form-horizontal" role="form" name="detailsform" ng-submit="check()" novalidate>
+<div class="form-group" ng-class="{'has-error':detailsform.pin.$error.required && !detailsform.pin.$pristine}">
+<input class="col-xs-12 col-sm-2 col-sm-offset-4" id="pin" type="text" name="pin" ng-model="pincode" placeholder="Pin Code" required>
+<span ng-show="detailsform.pin.$error.required && !detailsform.pin.$pristine" class="help-block">Pin Code is Required</span>
+</div>
+<div class="form-group" ng-class="{'has-error':detailsform.countrycode.$error.required && !detailsform.countrycode.$pristine}">
+<input class="col-xs-12 col-sm-2 col-sm-offset-4" id="city" type="text" name="city" ng-model="countrycode" placeholder=" Country Code" required>
+<span ng-show="detailsform.city.$error.required && !detailsform.city.$pristine">Country Code is Required</span>
+</div>
+<button  class="btn btn-primary col-sm-offset-4" ng-disabled="detailsform.$invalid">Submit</button>
+</form>
+<div id="data">
+<table class='table  table-hover' id='itemtable'>
+<tr><td>Cloudliness:</td><td> {{content.weather[0].description}} 
+</td></tr>
+<tr><td>Pressure:</td><td>{{content.main.pressure}}hpa</td></tr>
+<tr><td> humidity:</td><td>{{content.main.humidity}}</td></tr>
+<tr><td>sunrise:</td><td>{{hoursrise}}:{{minsrise}}</td></tr>
+<tr><td>sunset:</td><td>{{hoursset}}:{{minsset}}</td></tr>
+<tr><td>Place: </td><td>{{content.name}}</td></tr>
+</table>
+</div>
+<div id="error">
+<h2>Something Wrong</h2>
+<h3>Status Code:{{statuscode}}</h3>
+<h3>Status Text:{{statustext}}</h3>
+</div>
+</div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
